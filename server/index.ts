@@ -23,11 +23,16 @@ export function createServer() {
       credentials: true,
     }),
   );
-  // Parse JSON regardless of content-type to be resilient behind proxies (e.g., Netlify)
+  // Parse JSON regardless of content-type to be resilient behind proxies
   app.use(express.json({ type: "*/*" }));
   app.use(express.urlencoded({ extended: true }));
 
-  // Example API routes
+  // Health Check for Render
+  app.get("/api/health", (_req, res) => {
+    res.status(200).send("OK");
+  });
+
+  // API routes from your project
   app.get("/api/ping", (_req, res) => {
     const ping = process.env.PING_MESSAGE ?? "ping";
     res.json({ message: ping });
