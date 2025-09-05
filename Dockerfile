@@ -23,8 +23,7 @@ RUN npm run build:server
 # Use a lightweight Node.js image for the final container
 FROM node:20-slim
 
-# Set NODE_ENV to production for the final image
-ENV NODE_ENV=production
+
 
 WORKDIR /app
 
