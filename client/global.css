@@ -1,0 +1,140 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    /* Accent tokens used by charts and components */
+    /* Professional, high-contrast accents (aligned with landing) */
+    --neon-teal: 230 92% 65%; /* Indigo-leaning blue */
+    --neon-violet: 265 80% 68%; /* Vivid but refined violet */
+    --neon-lime: 141 70% 55%; /* Balanced green for positive states */
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Violet/Purple-forward dark theme */
+    --background: 268 34% 9%;
+    --foreground: 0 0% 98%;
+
+    --card: 268 28% 13%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 268 28% 13%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 275 85% 70%; /* Vibrant violet for headings/buttons */
+    --primary-foreground: 229 84% 5%;
+
+    --secondary: 268 24% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 268 24% 18%;
+    --muted-foreground: 270 10% 70%;
+
+    --accent: 268 24% 18%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 72% 56%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 268 18% 24%;
+    --input: 268 18% 24%;
+    --ring: 275 85% 70%;
+
+    --sidebar-background: 268 34% 9%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 275 85% 70%;
+    --sidebar-primary-foreground: 229 84% 5%;
+    --sidebar-accent: 290 80% 70%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 268 18% 24%;
+    --sidebar-ring: 275 85% 70%;
+
+    /* Accent tokens shifted to violet spectrum */
+    --neon-teal: 275 85% 70%; /* Violet accent */
+    --neon-violet: 290 80% 70%; /* Fuchsia-violet accent */
+    --neon-lime: 141 70% 55%; /* Keep green for positive states */
+
+    --radius: 1.25rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    /* Violet gradient backdrop for depth */
+    background-image: radial-gradient(40% 30% at 10% 0%, hsl(275 50% 18% / 0.35) 0%, transparent 60%),
+      radial-gradient(40% 30% at 90% 10%, hsl(290 55% 22% / 0.35) 0%, transparent 60%);
+    background-attachment: fixed;
+  }
+}
+
+/* Professional polish */
+::selection {
+  background: hsl(255 90% 70% / 0.35);
+  color: hsl(0 0% 100%);
+}
+
+/* Optional utility for glass surfaces */
+.glass {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10;
+}

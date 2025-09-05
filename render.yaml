@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: financeflow
+    runtime: docker
+    repo: https://github.com/taran24a/neon-finance # <-- IMPORTANT: Change this to your repository URL
+    region: oregon # Optional: choose a region closer to you
+    plan: free # Or your preferred plan
+    healthCheckPath: /api/health # A simple health check endpoint
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 8080
+      - key: MONGODB_URI
+        fromSecret: true # Use a secret group for sensitive keys
+      - key: JWT_SECRET
+        fromSecret: true
+      - key: GEMINI_API_KEY
+        fromSecret: true
+      - key: ALPHA_VANTAGE_API_KEY
+        fromSecret: true
+      - key: CORS_ORIGIN
+        value: "https://financeflow-n5sl.onrender.com" # Your frontend URL
+      # Add other non-sensitive env vars here if needed
